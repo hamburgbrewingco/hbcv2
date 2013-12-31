@@ -3,7 +3,7 @@
 <div id="beers" class="transitions-enabled">
   <% @beers.each do |beer| %>
     <div class="box">
-      <%= image_tag beer.image.url(:medium) %>
+      <%= link_to image_tag(beer.image.url(:medium)), beer %>
       <br>
       <strong><%= beer.name %></strong>
       <p>

@@ -1,9 +1,12 @@
 Hbcv2::Application.routes.draw do
+  resources :locations
+
   resources :beers
 
   devise_for :users
   root "pages#home"
   get "about" => "pages#about"
+  get "events" => "pages#events"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

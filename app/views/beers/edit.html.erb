@@ -1,6 +1,10 @@
-<h1>Editing beer</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @beer %> |
-<%= link_to 'Back', beers_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Edit Beer</h1>
+  </div>
+	<%= render 'form' %>
+	<div class="panel-footer">
+		<%= link_to 'Show', @beer %> |
+		<%= link_to 'Back', beers_path %>
+	</div>
+</div>

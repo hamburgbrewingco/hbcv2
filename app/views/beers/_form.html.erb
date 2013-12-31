@@ -1,41 +1,43 @@
-<%= form_for @beer, html: { multipart: true } do |f| %>
-  <% if @beer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
+  <div class="panel-body">
+  <%= form_for @beer, html: { multipart: true } do |f| %>
+    <% if @beer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
 
-      <ul>
-      <% @beer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @beer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :type %><br>
+      <%= f.select(:type, ["Altbier","Amber ale","Barley wine","Berliner weisse","Bière de Garde","Bitter","Blonde Ale","Bock","Brown ale","California Common","Cream Ale","Dortmunder Export","Doppelbock","Dunkel","Dunkelweizen","Eisbock","Fruit lambic","Golden Ale","Gose","Gueuze","Hefeweizen","Helles","India pale ale","Kölsch","Lambic","Light ale","Maibock/Helles bock","Malt liquor","Mild","Oktoberfestbier/Märzenbier","Old ale","Oud bruin","Pale ale","Pilsner","Porter","Red ale","Roggenbier","Saison","Scotch ale","Steam beer","Stout","Schwarzbier","Vienna lager","Witbier","Weissbier","Weizenbock"], {}, {class: "form-control"}) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :category %><br>
+      <%= f.select(:category, ["Standard", "Seasonal", "Limited Edition"], {}, {class: "form-control"}) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :alcohol_percent %><br>
+      <%= f.number_field :alcohol_percent, class: "form-control text_field", :step => 'any' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Add Beer", class: "btn btn-primary" %>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :image %>
-    <%= f.file_field :image, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :type %><br>
-    <%= f.select(:type, ["Altbier","Amber ale","Barley wine","Berliner weisse","Bière de Garde","Bitter","Blonde Ale","Bock","Brown ale","California Common","Cream Ale","Dortmunder Export","Doppelbock","Dunkel","Dunkelweizen","Eisbock","Fruit lambic","Golden Ale","Gose","Gueuze","Hefeweizen","Helles","India pale ale","Kölsch","Lambic","Light ale","Maibock/Helles bock","Malt liquor","Mild","Oktoberfestbier/Märzenbier","Old ale","Oud bruin","Pale ale","Pilsner","Porter","Red ale","Roggenbier","Saison","Scotch ale","Steam beer","Stout","Schwarzbier","Vienna lager","Witbier","Weissbier","Weizenbock"], {}, {class: "form-control"}) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :category %><br>
-    <%= f.select(:category, ["Standard", "Seasonal", "Limited Edition"], {}, {class: "form-control"}) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :alcohol_percent %><br>
-    <%= f.number_field :alcohol_percent, class: "form-control text_field", :step => 'any' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.submit "Add Beer", class: "btn btn-primary" %>
-  </div>
-<% end %>

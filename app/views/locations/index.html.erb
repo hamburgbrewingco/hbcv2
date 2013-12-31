@@ -1,0 +1,138 @@
+<div class="location-box">
+<h1>Brew Near You</h1>
+
+<p class="lead">
+    Here are the current locations where you can find the Hamburg Brewing Company beers.
+  Check back
+  frequently, more locations are being added! 
+</p>
+<%= form_tag locations_path, :method => :get do %>
+  <div class="form-group form-inline">
+    <%= text_field_tag :search, params[:search], :placeholder => 'Enter your location...', :class => "form-control", :style => "height:48px; width:260px;font-size:16pt;" %>
+  
+    <button type="submit" class="btn btn-primary btn-lg">Find me some Hamburg!</button>
+  </div>
+<% end %>
+
+<html>
+  <head>
+    <style>
+    body { font-family: Helvetica; }
+    .map-content h3 { margin: 0; padding: 5px 0 0 0; }
+    </style>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    <script>
+  // Set the Map variable
+        var map;
+        function initialize() { 
+            var myOptions = {
+            zoom: 9,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+                    
+        var infoWindow = new google.maps.InfoWindow;
+        map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+        // Set the center of the map
+
+
+        <% if params[:search].present? %>
+        <% @locations.each do |location| %>
+        var pos = new google.maps.LatLng(<%= location.latitude %>, <%= location.longitude %>);
+        map.setCenter(pos);
+        <% end %>
+        <% else %>
+        var pos = new google.maps.LatLng(42.715893, -78.829477);
+        map.setCenter(pos);
+        <% end %>
+
+        function infoCallback(infowindow, marker) { 
+            return function() {
+            infowindow.open(map, marker);
+        };
+   }    
+        var image = '/HBCMarker.png';
+
+        var all = [
+        <% @locations.each do |location| %>
+          ["<%= location.name %>", "<%= location.address %>", "<%= location.website %>", "<%= location.phone %>", "<%= location.latitude %>", "<%= location.longitude %>"],
+        <% end %>
+        ];
+
+   function setMarkers(map, all) {  
+    for (var i in all) {                    
+            var name  = all[i][0];
+            var address = all[i][1];
+            var city  = all[i][2];
+            var state  = all[i][3];
+            var zip   = all[i][0];
+            var lat   = all[i][4];
+            var lng   = all[i][5];
+            var latlngset;
+            latlngset = new google.maps.LatLng(lat, lng);
+            var marker = new google.maps.Marker({  
+              map: map,  title: name,  position: latlngset, icon: image  
+            });
+            var content = '<div class="map-content"><h3>' + name + '</h3>' + address + '<br />' + city + '<br /><a href="http://maps.google.com/?daddr=' + address + '" target="_blank">Get Directions</a></div>';         
+            var infowindow = new google.maps.InfoWindow();
+              infowindow.setContent(content);
+              google.maps.event.addListener(
+                marker, 
+                'click', 
+                infoCallback(infowindow, marker)
+              );
+          }
+        }     
+        // Set all markers in the all variable
+        setMarkers(map, all);
+      };
+      // Initializes the Google Map
+      google.maps.event.addDomListener(window, 'load', initialize);
+      $(document).ready(initialize);
+$(document).on('page:load', initialize);
+    </script>
+  </head>
+  <% if @locations.empty? %>
+  <span class="center">No Hamburg beers near that location (yet!). <%= link_to 'Search again?', locations_path, 'data-no-turbolink' => true %></span>
+  <% else %>
+  <%= link_to 'Show all', locations_path, 'data-no-turbolink' => true %>
+  <% end %>
+  <body>
+    <div id="map_canvas" style="height: 400px; width: 800;"></div>
+  </body>
+</html>
+
+<table class="table table-striped">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Type</th>
+    <th>Website</th>
+    <th></th>
+  </tr>
+<% @locations.each do |location| %>
+  <tr>
+    <td><img src="/HBCEmblemSmall.png" style="width: 20%;"/></td>
+    <td><%= location.name %></td>
+    <td><%= location.address %></td>
+    <td><%= location.vender %></td>
+    <td><a href="<%= location.url %>" target="blank"><%= location.website %></a> </td>
+    <% if user_signed_in? %>
+    <td><%= link_to edit_location_path(location), class: 'btn btn-primary' do %>
+        <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+    </td>
+    <td><%= link_to location, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' do %>
+        <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+    </td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if user_signed_in? %>
+<%= link_to 'New Location', new_location_path, :class => 'btn' %>
+<% end %>
+</div>

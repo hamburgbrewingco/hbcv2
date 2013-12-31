@@ -1,0 +1,40 @@
+<script>
+$(document).scroll(function () {
+    var value = $(this).scrollTop();
+    if ( value > 120 ) {
+        $('.topMenu').fadeIn();
+    } else {
+        $('.topMenu').fadeOut();
+    }
+
+});
+</script>
+
+<div class="topMenu container">
+  <div class="container">
+<span class="logo"><a href="/"><img src="/HBCEmblem.png" style="width: 7%"/></a></span>  
+<ul class="pull-right">
+  <b><li><a href="/beers">BEERS</a></li>
+  <li>|</li>
+  <li><%= link_to 'BEER FINDER', locations_path, 'data-no-turbolink' => true %></li>
+  <li>|</li>
+  <li><a href="/brewery">BREWERY</a></li>
+  <li>|</li>
+  <li><a href="/events">EVENTS</a></li></b>
+</ul>
+</div>
+</div>
+
+<div class="mainMenu container center">
+  <b><ul>
+    <li><a href="/beers">BEERS</a></li>
+    <li>|</li>
+    <li><%= link_to 'BEER FINDER', locations_path, 'data-no-turbolink' => true %></li>
+    <li3>|</li3>
+    <li2><span><a href="/"><img src="/HeaderLogo.png" style="width: 25%"/></a></span></li2>
+    <li4>|</li4>
+    <li><a href="/brewery">BREWERY</a></li>
+    <li>|</li>
+    <li><a href="/events">EVENTS</a></li>
+  </ul></b>
+</div>
