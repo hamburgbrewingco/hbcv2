@@ -7,3 +7,13 @@ $ ->
     $('#beers').masonry
       itemSelector: '.box'
       isFitWidth: true
+$ ->
+  $('#beers2').imagesLoaded ->
+    $('#beers2').masonry
+      itemSelector: '.box'
+      isFitWidth: true
+$ ->
+  $('#beers3').imagesLoaded ->
+    $('#beers3').masonry
+      itemSelector: '.box'
+      isFitWidth: true

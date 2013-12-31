@@ -27,7 +27,7 @@
 
 <h1>Seasonal</h1>
 
-<div id="beers" class="transitions-enabled">
+<div id="beers2" class="transitions-enabled">
   <% @beers.where(:category => 'Seasonal').each do |beer| %>
     <div class="box">
       <%= link_to image_tag(beer.image.url(:medium)), beer %>
@@ -54,7 +54,7 @@
 
 <h1>Limited Edition</h1>
 
-<div id="beers" class="transitions-enabled">
+<div id="beers3" class="transitions-enabled">
   <% @beers.where(:category => 'Limited Edition').each do |beer| %>
     <div class="box">
       <%= link_to image_tag(beer.image.url(:medium)), beer %>
