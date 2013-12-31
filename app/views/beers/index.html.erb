@@ -1,35 +1,22 @@
-<h1>Listing beers</h1>
+<h1>Our Beers</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Alcohol</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @beers.each do |beer| %>
-      <tr>
-        <td><%= image_tag beer.image.url(:medium) %></td>
-        <td><%= beer.name %></td>
-        <td><%= beer.type %></td>
-        <td><%= beer.alcohol_percent %>%</td>
-        <td><%= beer.description %></td>
-        <td><%= link_to 'Show', beer %></td>
-        <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
-        <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="beers" class="transitions-enabled">
+  <% @beers.each do |beer| %>
+    <div class="box">
+      <%= image_tag beer.image.url(:medium) %>
+      <br>
+      <strong><%= beer.name %></strong>
+      <p>
+        <i><%= beer.type %>
+        <%= beer.alcohol_percent %>%</i>
+      </p>
+      <%= link_to 'Show', beer_path(beer) %>
+      <%= link_to 'Edit', edit_beer_path(beer) %>
+      <%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %>
+</div>
 
 <br>
 
-<%= link_to 'New Beer', new_beer_path %>
+<%= link_to 'New Beer', new_beer_path, class: "btn btn-primary" %>
