@@ -1,11 +1,65 @@
-<h1>Our Beers</h1>
+<h1>Standard Rotation</h1>
 
 <div id="beers" class="transitions-enabled">
-  <% @beers.each do |beer| %>
+  <% @beers.where(:category => 'Standard').each do |beer| %>
     <div class="box">
       <%= link_to image_tag(beer.image.url(:medium)), beer %>
       <br>
-      <h3><%= beer.name %></h3>
+      <h3><%= link_to beer.name, beer %></h3>
+      <p>
+        <i><%= beer.type %>
+        <%= beer.alcohol_percent %>%</i>
+      </p>
+      <% if user_signed_in? %>
+        <%= link_to edit_beer_path(beer), class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to beer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+        <%= link_to beer_path(beer), class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<h1>Seasonal</h1>
+
+<div id="beers" class="transitions-enabled">
+  <% @beers.where(:category => 'Seasonal').each do |beer| %>
+    <div class="box">
+      <%= link_to image_tag(beer.image.url(:medium)), beer %>
+      <br>
+      <h3><%= link_to beer.name, beer %></h3>
+      <p>
+        <i><%= beer.type %>
+        <%= beer.alcohol_percent %>%</i>
+      </p>
+      <% if user_signed_in? %>
+        <%= link_to edit_beer_path(beer), class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to beer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+        <%= link_to beer_path(beer), class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<h1>Limited Edition</h1>
+
+<div id="beers" class="transitions-enabled">
+  <% @beers.where(:category => 'Limited Edition').each do |beer| %>
+    <div class="box">
+      <%= link_to image_tag(beer.image.url(:medium)), beer %>
+      <br>
+      <h3><%= link_to beer.name, beer %></h3>
       <p>
         <i><%= beer.type %>
         <%= beer.alcohol_percent %>%</i>
