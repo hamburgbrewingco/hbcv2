@@ -1,29 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @beer.image.url(:medium) %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @beer.name %>
-</p>
-<p>
-  <strong>Type:</strong>
-  <%= @beer.type %>
-</p>
-<p>
-  <strong>Category:</strong>
-  <%= @beer.category %>
-</p>
-<p>
-  <strong>Alcohol:</strong>
-  <%= @beer.alcohol_percent %>%
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @beer.description %>
-</p>
-
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+    <h1><%= @beer.name %> <small><%= @beer.alcohol_percent %>%</small></h1>
+    <h3><%= @beer.type %></h3>
+    </p>
+    <p>
+      <strong>Rotation:</strong>
+      <%= @beer.category %>
+    </p>
+    <p>
+      <%= @beer.description %>
+    </p>
+  </div>
+  <div class="col-md-5">
+    <p>
+      <%= image_tag @beer.image.url(:medium) %>
+    </p>
+  </div>
+</div>
+<% if user_signed_in? %>
 <%= link_to 'Edit', edit_beer_path(@beer) %> |
+<% end %>
 <%= link_to 'Back', beers_path %>
+
