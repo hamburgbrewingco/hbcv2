@@ -1,12 +1,13 @@
 <h1>Listing beers</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Description</th>
+      <th>Image</th>
       <th>Name</th>
       <th>Type</th>
       <th>Alcohol</th>
+      <th>Description</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,10 +17,11 @@
   <tbody>
     <% @beers.each do |beer| %>
       <tr>
-        <td><%= beer.description %></td>
+        <td><%= image_tag beer.image.url(:medium) %></td>
         <td><%= beer.name %></td>
         <td><%= beer.type %></td>
-        <td><%= beer.alcohol %></td>
+        <td><%= beer.alcohol_percent %>%</td>
+        <td><%= beer.description %></td>
         <td><%= link_to 'Show', beer %></td>
         <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
         <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
