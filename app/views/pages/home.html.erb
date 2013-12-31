@@ -4,7 +4,7 @@
       <%= link_to 'Edit Features', edit_feature_path(@features) %>
     <% end %>
 
-    <% if @features.message? %>
+    <% unless @features.message.blank? %>
     <div class="alert alert-success">
       <%= @features.message %>
     </div>
