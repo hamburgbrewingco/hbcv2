@@ -1,0 +1,1 @@
+json.extract! @feature, :id, :cta1_header, :cta1_caption, :cta1_url, :cta1_button, :cta2_header, :cta2_caption, :cta2_url, :cta2_button, :cta3_header, :cta3_caption, :cta3_url, :cta3_button, :created_at, :updated_at

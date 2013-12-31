@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cta1_header: MyString
+  cta1_caption: MyString
+  cta1_url: MyString
+  cta1_button: MyString
+  cta2_header: MyString
+  cta2_caption: MyString
+  cta2_url: MyString
+  cta2_button: MyString
+  cta3_header: MyString
+  cta3_caption: MyString
+  cta3_url: MyString
+  cta3_button: MyString
+
+two:
+  cta1_header: MyString
+  cta1_caption: MyString
+  cta1_url: MyString
+  cta1_button: MyString
+  cta2_header: MyString
+  cta2_caption: MyString
+  cta2_url: MyString
+  cta2_button: MyString
+  cta3_header: MyString
+  cta3_caption: MyString
+  cta3_url: MyString
+  cta3_button: MyString

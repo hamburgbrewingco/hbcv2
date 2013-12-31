@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131231102328) do
+ActiveRecord::Schema.define(version: 20131231144034) do
 
   create_table "beers", force: true do |t|
     t.text     "description"
@@ -26,6 +26,53 @@ ActiveRecord::Schema.define(version: 20131231102328) do
     t.datetime "image_updated_at"
     t.string   "category"
     t.float    "alcohol_percent"
+  end
+
+  create_table "cta", force: true do |t|
+    t.string   "cta1_header"
+    t.string   "cta1_caption"
+    t.string   "cta1_url"
+    t.string   "cta1_button"
+    t.string   "cta2_header"
+    t.string   "cta2_caption"
+    t.string   "cta2_url"
+    t.string   "cta2_button"
+    t.string   "cta3_header"
+    t.string   "cta3_caption"
+    t.string   "cta3_url"
+    t.string   "cta3_button"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "features", force: true do |t|
+    t.string   "cta1_header"
+    t.string   "cta1_caption"
+    t.string   "cta1_url"
+    t.string   "cta1_button"
+    t.string   "cta2_header"
+    t.string   "cta2_caption"
+    t.string   "cta2_url"
+    t.string   "cta2_button"
+    t.string   "cta3_header"
+    t.string   "cta3_caption"
+    t.string   "cta3_url"
+    t.string   "cta3_button"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_cta1_file_name"
+    t.string   "image_cta1_content_type"
+    t.integer  "image_cta1_file_size"
+    t.datetime "image_cta1_updated_at"
+    t.string   "image_cta2_file_name"
+    t.string   "image_cta2_content_type"
+    t.integer  "image_cta2_file_size"
+    t.datetime "image_cta2_updated_at"
+    t.string   "image_cta3_file_name"
+    t.string   "image_cta3_content_type"
+    t.integer  "image_cta3_file_size"
+    t.datetime "image_cta3_updated_at"
+    t.string   "message"
   end
 
   create_table "locations", force: true do |t|

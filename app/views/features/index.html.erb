@@ -1,0 +1,49 @@
+<h1>Listing features</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cta1 header</th>
+      <th>Cta1 caption</th>
+      <th>Cta1 url</th>
+      <th>Cta1 button</th>
+      <th>Cta2 header</th>
+      <th>Cta2 caption</th>
+      <th>Cta2 url</th>
+      <th>Cta2 button</th>
+      <th>Cta3 header</th>
+      <th>Cta3 caption</th>
+      <th>Cta3 url</th>
+      <th>Cta3 button</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @features.each do |feature| %>
+      <tr>
+        <td><%= feature.cta1_header %></td>
+        <td><%= feature.cta1_caption %></td>
+        <td><%= feature.cta1_url %></td>
+        <td><%= feature.cta1_button %></td>
+        <td><%= feature.cta2_header %></td>
+        <td><%= feature.cta2_caption %></td>
+        <td><%= feature.cta2_url %></td>
+        <td><%= feature.cta2_button %></td>
+        <td><%= feature.cta3_header %></td>
+        <td><%= feature.cta3_caption %></td>
+        <td><%= feature.cta3_url %></td>
+        <td><%= feature.cta3_button %></td>
+        <td><%= link_to 'Show', feature %></td>
+        <td><%= link_to 'Edit', edit_feature_path(feature) %></td>
+        <td><%= link_to 'Destroy', feature, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Feature', new_feature_path %>

@@ -1,5 +1,15 @@
 <!-- Carousel
     ================================================== -->
+    <% if user_signed_in? %>
+      <%= link_to 'Edit Features', edit_feature_path(@features) %>
+    <% end %>
+
+    <% if @features.message? %>
+    <div class="alert alert-success">
+      <%= @features.message %>
+    </div>
+    <% end %>
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -9,32 +19,46 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-          <img src="/barnew.JPG">
+          <%= image_tag @features.image_cta1 %>
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <h1><%= @features.cta1_header %></h1>
+              <p>
+                <%= @features.cta1_caption %>
+              </p>
+              <% unless @features.cta1_url.blank? %>
+                <p><a class="btn btn-lg btn-primary" href="<%= @features.cta1_url %>" role="button"><%= @features.cta1_button %></a></p>
+              <% end %>
             </div>
           </div>
         </div>
         <div class="item">
-          <img src="/taps.JPG">
+          <%= image_tag @features.image_cta2 %>
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <h1><%= @features.cta2_header %></h1>
+              <p>
+                <%= @features.cta2_caption %>
+              </p>
+              <% unless @features.cta2_url.blank? %>
+                <p><a class="btn btn-lg btn-primary" href="<%= @features.cta2_url %>" role="button"><%= @features.cta2_button %></a></p>
+              <% end %>
             </div>
           </div>
         </div>
         <div class="item">
-          <img src="/hops.JPG">
+          <%= image_tag @features.image_cta3 %>
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              <h1><%= @features.cta3_header %></h1>
+              <p>
+                <%= @features.cta3_caption %>
+              </p>
+              <% unless @features.cta3_url.blank? %>
+                <p>
+                  <p><a class="btn btn-lg btn-primary" href="<%= @features.cta3_url %>" role="button"><%= @features.cta3_button %></a></p>
+                </p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -42,3 +66,26 @@
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div><!-- /.carousel -->
+
+    <div class="row">
+        <div class="col-md-4">
+          <h2>Beer Finder</h2>
+          <p class="lead">Looking for our beer? Click here to find out where it is.</p>
+          <p><a class="btn  btn-primary" href="/locations">Find HBC &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Events</h2>
+          <p class="lead">Click here for upcoming events!</p>
+          <p><a class="btn btn-primary" href="/events">Meet up &raquo;</a></p>
+        </div>
+         <div class="col-md-4">
+            <h2>Brewery Hours</h2>
+            <ul class="lead">
+              <li><b>Wed:</b> 4-10pm</li>
+              <li><b>Thurs:</b> 4-10pm</li>
+              <li><b>Fri:</b> 4-10pm</li>
+              <li><b>Sat:</b> 12-10pm</li>
+              <li><b>Sun:</b> 12-6pm</li>
+            </ul>
+          </div>
+   </div>

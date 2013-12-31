@@ -1,0 +1,93 @@
+<%= form_for @feature, :html => { :multipart => true } do |f| %>
+  <% if @feature.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feature.errors.count, "error") %> prohibited this feature from being saved:</h2>
+
+      <ul>
+      <% @feature.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :message, 'Alert Message' %><br>
+    <%= f.text_field :message, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_cta1, 'Image 1' %>
+    (Images at least 600px wide are best)
+    <%= f.file_field :image_cta1, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta1_header, 'Header 1' %><br>
+    <%= f.text_field :cta1_header, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta1_caption, 'Caption 1' %><br>
+    <%= f.text_area :cta1_caption, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta1_url, 'Button 1 URL' %>
+    (leave blank if you don't want to add a button)
+    <br>
+    <%= f.text_field :cta1_url, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta1_button, 'Button 1 Text' %><br>
+    <%= f.text_field :cta1_button, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_cta2, 'Image 2' %>
+    (Images at least 600px wide are best)
+    <%= f.file_field :image_cta2, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta2_header, 'Header 2' %><br>
+    <%= f.text_field :cta2_header, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta2_caption, 'Caption 2' %><br>
+    <%= f.text_area :cta2_caption, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta2_url, 'Button 2 URL' %>
+    (leave blank if you don't want to add a button)
+    <br>
+    <%= f.text_field :cta2_url, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta2_button, 'Button 2 Text' %><br>
+    <%= f.text_field :cta2_button, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_cta3, 'Image 3' %>
+    (Images at least 600px wide are best)
+    <%= f.file_field :image_cta3, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta3_header, 'Header 3' %><br>
+    <%= f.text_field :cta3_header, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta3_caption, 'Caption 3' %><br>
+    <%= f.text_area :cta3_caption, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta3_url, 'Button 3 URL' %>
+    (leave blank if you don't want to add a button)
+    <br>
+    <%= f.text_field :cta3_url, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cta3_button, 'Button 3 Text' %><br>
+    <%= f.text_field :cta3_button, class: "form-control" %>
+  </div>
+  <div class="form-group">
+      <%= f.submit "Update Features", class: "btn btn-primary" %>
+    </div>
+<% end %>

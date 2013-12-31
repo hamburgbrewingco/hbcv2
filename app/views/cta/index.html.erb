@@ -1,0 +1,49 @@
+<h1>Listing cta</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cta1 header</th>
+      <th>Cta1 caption</th>
+      <th>Cta1 url</th>
+      <th>Cta1 button</th>
+      <th>Cta2 header</th>
+      <th>Cta2 caption</th>
+      <th>Cta2 url</th>
+      <th>Cta2 button</th>
+      <th>Cta3 header</th>
+      <th>Cta3 caption</th>
+      <th>Cta3 url</th>
+      <th>Cta3 button</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cta.each do |ctum| %>
+      <tr>
+        <td><%= ctum.cta1_header %></td>
+        <td><%= ctum.cta1_caption %></td>
+        <td><%= ctum.cta1_url %></td>
+        <td><%= ctum.cta1_button %></td>
+        <td><%= ctum.cta2_header %></td>
+        <td><%= ctum.cta2_caption %></td>
+        <td><%= ctum.cta2_url %></td>
+        <td><%= ctum.cta2_button %></td>
+        <td><%= ctum.cta3_header %></td>
+        <td><%= ctum.cta3_caption %></td>
+        <td><%= ctum.cta3_url %></td>
+        <td><%= ctum.cta3_button %></td>
+        <td><%= link_to 'Show', ctum %></td>
+        <td><%= link_to 'Edit', edit_ctum_path(ctum) %></td>
+        <td><%= link_to 'Destroy', ctum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ctum', new_ctum_path %>

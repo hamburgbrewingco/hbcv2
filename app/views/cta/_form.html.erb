@@ -1,0 +1,65 @@
+<%= form_for(@cta) do |f| %>
+  <% if @cta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cta.errors.count, "error") %> prohibited this cta from being saved:</h2>
+
+      <ul>
+      <% @cta.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cta1_header %><br>
+    <%= f.text_field :cta1_header %>
+  </div>
+  <div class="field">
+    <%= f.label :cta1_caption %><br>
+    <%= f.text_field :cta1_caption %>
+  </div>
+  <div class="field">
+    <%= f.label :cta1_url %><br>
+    <%= f.text_field :cta1_url %>
+  </div>
+  <div class="field">
+    <%= f.label :cta1_button %><br>
+    <%= f.text_field :cta1_button %>
+  </div>
+  <div class="field">
+    <%= f.label :cta2_header %><br>
+    <%= f.text_field :cta2_header %>
+  </div>
+  <div class="field">
+    <%= f.label :cta2_caption %><br>
+    <%= f.text_field :cta2_caption %>
+  </div>
+  <div class="field">
+    <%= f.label :cta2_url %><br>
+    <%= f.text_field :cta2_url %>
+  </div>
+  <div class="field">
+    <%= f.label :cta2_button %><br>
+    <%= f.text_field :cta2_button %>
+  </div>
+  <div class="field">
+    <%= f.label :cta3_header %><br>
+    <%= f.text_field :cta3_header %>
+  </div>
+  <div class="field">
+    <%= f.label :cta3_caption %><br>
+    <%= f.text_field :cta3_caption %>
+  </div>
+  <div class="field">
+    <%= f.label :cta3_url %><br>
+    <%= f.text_field :cta3_url %>
+  </div>
+  <div class="field">
+    <%= f.label :cta3_button %><br>
+    <%= f.text_field :cta3_button %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
