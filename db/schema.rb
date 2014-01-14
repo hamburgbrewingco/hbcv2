@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114024400) do
+ActiveRecord::Schema.define(version: 20140114033004) do
 
   create_table "beers", force: true do |t|
     t.text     "description"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140114024400) do
     t.datetime "updated_at"
     t.integer  "alcohol"
     t.string   "alcohol_percent"
+    t.text     "description_fix"
   end
 
   create_table "locations", force: true do |t|

@@ -4,7 +4,7 @@
   <% @items.where(:category => 'wine').each do |item| %>
     <h3><%= item.name %> - $<%= item.price %></h3>
     <p class='lead'>
-      <%= item.description %>
+      <%= item.description_fix %>
       <br>
       <% if user_signed_in? %>
         <%= link_to edit_item_path(item), class: 'btn btn-xs btn-primary' do %>
@@ -26,7 +26,7 @@
   <% @items.where(:category => 'food').each do |item| %>
     <h3><%= item.name %> - $<%= item.price %></h3>
     <p class='lead'>
-      <%= item.description %><br>
+      <%= item.description_fix %><br>
       <% if user_signed_in? %>
         <%= link_to edit_item_path(item), class: 'btn btn-xs btn-primary' do %>
           <span class="glyphicon glyphicon-edit"></span>
@@ -46,7 +46,7 @@
   <% @items.where(:category => 'beer').each do |item| %>
     <h3><%= item.name %> - <%= item.alcohol_percent %>%</h3>
     <p class='lead'>
-      <%= item.description %>
+      <%= item.description_fix %>
       <br>
       <% if user_signed_in? %>
         <%= link_to edit_item_path(item), class: 'btn btn-xs btn-primary' do %>
