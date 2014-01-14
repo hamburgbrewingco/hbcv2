@@ -5,11 +5,19 @@
     <h3><%= item.name %> - $<%= item.price %></h3>
     <p class='lead'>
       <%= item.description %>
+      <br>
+      <% if user_signed_in? %>
+        <%= link_to edit_item_path(item), class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+        <%= link_to item_path(item), class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+        <% end %>
     </p>
-    
-    <%= link_to 'Show', item %>
-    <%= link_to 'Edit', edit_item_path(item) %>
-    <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
   <br>
 
@@ -18,12 +26,19 @@
   <% @items.where(:category => 'food').each do |item| %>
     <h3><%= item.name %> - $<%= item.price %></h3>
     <p class='lead'>
-      <%= item.description %>
+      <%= item.description %><br>
+      <% if user_signed_in? %>
+        <%= link_to edit_item_path(item), class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+        <%= link_to item_path(item), class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+        <% end %>
     </p>
-    
-    <%= link_to 'Show', item %>
-    <%= link_to 'Edit', edit_item_path(item) %>
-    <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
   <br>
   <h1>Beer List</h1>
@@ -32,13 +47,26 @@
     <h3><%= item.name %> - <%= item.alcohol_percent %>%</h3>
     <p class='lead'>
       <%= item.description %>
+      <br>
+      <% if user_signed_in? %>
+        <%= link_to edit_item_path(item), class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+        <%= link_to item_path(item), class: 'btn btn-xs btn-primary' do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+        <% end %>
     </p>
-    
-    <%= link_to 'Show', item %>
-    <%= link_to 'Edit', edit_item_path(item) %>
-    <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
   <br>
 
+  <h3>Hours</h3>
+  <p class='lead'>
+    <strong>Wed-Fri 4-10PM, Sat 12-10, PM Sun 12-6PM</strong>
+  </p>
+  <br>
   <%= link_to 'New Item', new_item_path, class: 'btn btn-primary' %>
 </div>
