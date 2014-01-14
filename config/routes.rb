@@ -1,4 +1,7 @@
 Hbcv2::Application.routes.draw do
+  resources :items
+  get "menu" => "items#index"
+
   resources :features
 
   resources :cta
@@ -11,7 +14,6 @@ Hbcv2::Application.routes.draw do
   root "pages#home"
   get "brewery" => "pages#brewery"
   get "events" => "pages#events"
-  get "menu" => "pages#menu"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

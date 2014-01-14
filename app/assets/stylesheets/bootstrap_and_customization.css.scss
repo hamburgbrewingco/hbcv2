@@ -20,11 +20,11 @@ body{
 }
 
 .center {
-     text-align: center;
+  text-align: center;
 }
 
 .navbar-brand {
-     font-weight: bold;
+  font-weight: bold;
 }
 
 .footer{
@@ -141,6 +141,13 @@ body{
     padding: 0px 0;
     display: inline-block;
   }
+}
+
+.menu {
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+  max-width: 800px;
 }
 
 /* CUSTOMIZE THE CAROUSEL

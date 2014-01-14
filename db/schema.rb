@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131231144034) do
+ActiveRecord::Schema.define(version: 20140114024400) do
 
   create_table "beers", force: true do |t|
     t.text     "description"
@@ -73,6 +73,17 @@ ActiveRecord::Schema.define(version: 20131231144034) do
     t.integer  "image_cta3_file_size"
     t.datetime "image_cta3_updated_at"
     t.string   "message"
+  end
+
+  create_table "items", force: true do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.string   "description"
+    t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "alcohol"
+    t.string   "alcohol_percent"
   end
 
   create_table "locations", force: true do |t|
