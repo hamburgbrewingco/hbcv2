@@ -68,5 +68,7 @@
     <strong>Wed-Fri 4-10PM, Sat 12-10, PM Sun 12-6PM</strong>
   </p>
   <br>
+  <% if user_signed_in? %>
   <%= link_to 'New Item', new_item_path, class: 'btn btn-primary' %>
+  <% end %>
 </div>
