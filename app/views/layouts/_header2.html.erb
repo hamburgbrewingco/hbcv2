@@ -10,31 +10,47 @@ $(document).scroll(function () {
 });
 </script>
 
-<div class="topMenu container">
-  <div class="container">
-<span class="logo"><a href="/"><img src="/HBCEmblem.png" style="width: 7%"/></a></span>  
-<ul class="pull-right">
-  <b><li><a href="/beers">BEERS</a></li>
-  <li>|</li>
-  <li><%= link_to 'BEER FINDER', locations_path, 'data-no-turbolink' => true %></li>
-  <li>|</li>
-  <li><a href="/brewery">BREWERY</a></li>
-  <li>|</li>
-  <li><a href="/events">EVENTS</a></li></b>
-</ul>
-</div>
+<div class="topMenu">
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/"><img src="/HBCEmblem(topMenu).png" class='img-responsive'/></a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav pull-right">
+          <b><li><a href="/beers">BEERS</a></li>
+          <li>|</li>
+          <li><%= link_to 'BEER FINDER', locations_path, 'data-no-turbolink' => true %></li>
+          <li>|</li>
+          <li><a href="/brewery">BREWERY</a></li>
+          <li>|</li>
+          <li><a href="/events">EVENTS</a></li></b>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
 </div>
 
-<div class="mainMenu container center">
-  <b><ul>
+<div class="mainMenu test">
+  <div class="navbar navbar" role="navigation">
+  <div class="navbar-inner">
     <li><a href="/beers">BEERS</a></li>
     <li>|</li>
     <li><%= link_to 'BEER FINDER', locations_path, 'data-no-turbolink' => true %></li>
-    <li3>|</li3>
-    <li2><span><a href="/"><img src="/HeaderLogo.png" style="width: 25%"/></a></span></li2>
-    <li4>|</li4>
+    <li>|</li>
+      <li class="nav-center">
+          <a href="#"><img src="/HeaderLogo.png" style='width: 25%;'/></a>
+      </li>
+      <li>|</li>
     <li><a href="/brewery">BREWERY</a></li>
     <li>|</li>
     <li><a href="/events">EVENTS</a></li>
-  </ul></b>
+  </div>
+</div>
 </div>
