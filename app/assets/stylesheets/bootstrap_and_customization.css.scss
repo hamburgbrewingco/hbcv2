@@ -13,6 +13,9 @@ $navbar-default-bg:            #273428;
 @import 'bootstrap';
 
 @media only screen and (max-width: 400px) {
+                    .locations {font-size: 70%;}
+                    .location-img {width:2%;}
+                    .smaller {width:2%;}
                     .mainMenu {font-size: 20%;}
                     .alert { font-size: 50%;}
                     .carousel-caption 

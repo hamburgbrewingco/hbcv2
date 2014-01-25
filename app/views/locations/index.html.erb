@@ -113,35 +113,38 @@ $(document).on('page:load', initialize);
   </body>
 </html>
 
-<table class="table table-striped">
-  <tr>
-    <th></th>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Type</th>
-    <th>Website</th>
-    <th></th>
-  </tr>
-<% @locations.each do |location| %>
-  <tr>
-    <td><img src="/HBCEmblemSmall.png" style="width: 20%;"/></td>
-    <td><%= location.name %></td>
-    <td><%= location.address %></td>
-    <td><%= location.vender %></td>
-    <td><a href="<%= location.url %>" target="blank"><%= location.website %></a> </td>
-    <% if user_signed_in? %>
-    <td><%= link_to edit_location_path(location), class: 'btn btn-primary' do %>
-        <span class="glyphicon glyphicon-edit"></span>
-        <% end %>
-    </td>
-    <td><%= link_to location, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' do %>
-        <span class="glyphicon glyphicon-trash"></span>
-        <% end %>
-    </td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
+<div class='table-responsive'>
+  <table class="table table-striped table-condensed">
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Type</th>
+      <th>Website</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <% @locations.each do |location| %>
+    <tr>
+      <td><img src="/HBCEmblemSmall.png"/></td>
+      <td><%= location.name %></td>
+      <td><%= location.address %></td>
+      <td><%= location.vender %></td>
+      <td><a href="<%= location.url %>" target="blank"><%= location.website %></a> </td>
+      <% if user_signed_in? %>
+      <td><%= link_to edit_location_path(location), class: 'btn btn-primary' do %>
+          <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+      </td>
+      <td><%= link_to location, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+      </td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+</div>
 
 <br />
 <% if user_signed_in? %>
