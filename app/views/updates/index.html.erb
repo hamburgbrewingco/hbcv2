@@ -10,7 +10,7 @@
       <h1><%= update.title %>
         <% if user_signed_in? %>
             <small>
-          <%= link_to edit_update_path(update), class: 'btn btn-xs btn-primary' do %>
+          <%= link_to edit_update_path(update), class: 'btn btn-xs btn-primary', data: { no_turbolink: true } do %>
             <span class="glyphicon glyphicon-edit"></span>
           <% end %>
           <%= link_to update, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-primary' do %>
@@ -32,7 +32,7 @@
 
     <% if user_signed_in? %>
       <br>
-      <%= link_to new_update_path, class: 'btn btn-primary' do %>
+      <%= link_to(new_update_path, class: 'btn btn-primary', data: { no_turbolink: true }) do %>
         <span class='glyphicon glyphicon-plus-sign'></span> New Post
         <% end %>
     <% end %>
