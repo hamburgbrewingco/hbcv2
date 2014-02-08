@@ -1,0 +1,40 @@
+<h1>HBC News</h1>
+
+<div class='row'><!--row-->
+  <div class='col-md-3'><!--sidebar-->
+    <%= render 'updates/sidebar' %>
+  </div><!--sidebar-->
+  <div class='col-md-9'><!--body-->
+    <% @updates.each do |update| %>
+      
+      <h1><%= update.title %>
+        <% if user_signed_in? %>
+            <small>
+          <%= link_to edit_update_path(update), class: 'btn btn-xs btn-primary' do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to update, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-primary' do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+          </small>
+          <% end %>
+      </h1>
+      <p class='muted'>
+        <%= update.created_at.strftime("%B %d, %Y") %> | <%= update.category %>
+      </p>
+      <% unless update.image.blank? %>
+        <%= link_to image_tag(update.image.url, class: 'img-responsive img-update'), update %>
+      <% end %>
+      <div>
+        <%= truncate_html(update.body, length: 1200, :escape => false, omission: (link_to "...(read more)", update)) %>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <br>
+      <%= link_to new_update_path, class: 'btn btn-primary' do %>
+        <span class='glyphicon glyphicon-plus-sign'></span> New Post
+        <% end %>
+    <% end %>
+  </div><!--body-->
+</div>

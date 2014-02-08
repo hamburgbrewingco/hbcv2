@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114033004) do
+ActiveRecord::Schema.define(version: 20140208020048) do
 
   create_table "beers", force: true do |t|
     t.text     "description"
@@ -98,6 +98,18 @@ ActiveRecord::Schema.define(version: 20140114033004) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "updates", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "category"
   end
 
   create_table "users", force: true do |t|

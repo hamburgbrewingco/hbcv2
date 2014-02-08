@@ -1,4 +1,8 @@
 Hbcv2::Application.routes.draw do
+  resources :updates
+  get 'news' => 'updates#news'
+  get 'press' => 'updates#press'
+
   resources :items
   get "menu" => "items#index"
 

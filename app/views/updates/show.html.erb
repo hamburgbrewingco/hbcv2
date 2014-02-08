@@ -1,0 +1,52 @@
+<h1>HBC News</h1>
+
+<div class='row'><!--row-->
+  <div class='col-md-3'><!--sidebar-->
+    <%= render 'updates/sidebar' %>
+  </div><!--sidebar-->
+  <div class='col-md-9'><!--body-->
+		<h1><%= @update.title %>
+			<% if user_signed_in? %>
+		    <small>
+			  <%= link_to edit_update_path(@update), class: 'btn btn-xs btn-primary' do %>
+			    <span class="glyphicon glyphicon-edit"></span>
+			  <% end %>
+			  <%= link_to @update, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-primary' do %>
+			    <span class="glyphicon glyphicon-trash"></span>
+			  <% end %>
+			  </small>
+		  <% end %>
+		</h1>
+		<p class='muted'>
+		  <%= @update.created_at.strftime("%B %d, %Y") %> | <%= @update.category %>
+		</p>
+
+		<% unless @update.image.blank? %>
+			<%= image_tag @update.image.url, class: 'img-responsive img-update' %>
+		<% end %>
+
+		<div class='update'>
+		  <%= raw @update.body %>
+		</div>
+		<div>
+
+		<!--Twitter-->
+		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		<!--Twitter-->
+
+		<div class="g-plusone"></div>
+		<script type="text/javascript">
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/platform.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+		</div>
+		<% if user_signed_in? %>
+			<%= link_to 'Edit', edit_update_path(@update) %> |
+			<% end %>
+		<%= link_to 'Back', request.referer %>
+	</div>
+</div>

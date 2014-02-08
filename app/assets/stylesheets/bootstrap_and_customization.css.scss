@@ -31,6 +31,12 @@ body{
 	color: black;
 }
 
+a { text-decoration: none; }
+
+a:hover {
+    text-decoration: none;
+}
+
 .content{
   background-color: #F0F0CB;
   padding-bottom: 20px;
@@ -147,6 +153,10 @@ body{
 .nysba-badge{
   width: 60%;
   height: 60;
+}
+
+.img-update {
+  max-height: 400px;
 }
 
 /* CUSTOMIZE THE CAROUSEL
