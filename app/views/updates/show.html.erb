@@ -20,11 +20,11 @@
 		<p class='muted'>
 		  <%= @update.created_at.strftime("%B %d, %Y") %> | <%= @update.category %>
 		</p>
-
+		<p>
 		<% unless @update.image.blank? %>
 			<%= image_tag @update.image.url, class: 'img-responsive img-update' %>
 		<% end %>
-
+		</p>
 		<div class='update'>
 		  <%= raw @update.body %>
 		</div>

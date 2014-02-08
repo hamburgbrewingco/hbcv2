@@ -11,7 +11,7 @@ class UpdatesController < ApplicationController
   end
 
   def index
-    @updates = Update.all
+    @updates = Update.all.order('created_at DESC')
   end
 
   # GET /updates/1
